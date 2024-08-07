@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAIN CHECK</title>
+    <body>
+        <body bgcolor="#000000">
+        
+        <div align="center">
+           
+         <TITLE>create</TITLE>
+        
+        
+        <style>
+          img {
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           width: 850px;
+           height: 800px;
+           margin-top: -300px;
+           margin-left: -450px;
+        }
+          
+        </style>
+        
+     
+         
+        <img border="0" id="giflain" src="/img/gif/whoo.gif" alt="Lain" width="95" height="800"></a>
+
+ <script>
+var timegif = 500;
+var count = localStorage.getItem('redirectCount');
+if (count === null){
+    count = 0;
+} else {
+    count = parseInt(count);
+}
+
+count++;
+localStorage.setItem('redirectCount', count);
+
+var pages = ['pre-midblogN2.html','pre-midblogN3.html','pre-midblogN4.html','pre-midblogN5.html'];
+
+var nextPage;
+if(count <= 8){
+    nextPage = pages[Math.floor(Math.random() * pages.length)];
+} else{
+    nextPage = 'pre-midblogN6.html';
+}
+
+setTimeout(function(){
+    window.location.href = nextPage;
+}, timegif);
+
+
+
+
+//  var timegif = 200;
+// setTimeout(function(){
+//     window.location.href = 'pre-midblogN3.html';
+
+// },timegif); 
+
+</script>  
+        </body>    
+    </div>
+        </html>
