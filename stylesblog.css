@@ -153,18 +153,29 @@ hr {
 	text-align:center;
 	letter-spacing:8px;
 	font-size:13px;
-	padding-top:20px;
-
+	padding: 20px;
+	
 	
 	}
-	
+
 .article p {
-	margin:20px;
+	margin:0 0 1em 0; /* prueba*/
+	padding-left: 20px; /* prueba*/
+	text-align:justify; /* prueba*/
+	letter-spacing: 0.6em;
+	word-spacing: -1em;
 	font-size:13px;
 
-	
 	}
+
+
+.article pre, code {
+	letter-spacing: 0.1em; /* Asegura que el espaciado sea estándar */
+	text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+	font-size: 12px;
+	text-align: justify;
 	
+	}	
 .date {
 	font-size:9px;
 	line-height:0px;
@@ -177,7 +188,16 @@ hr {
 	margin:0px;
 	
 	}
-	
+.lainsit{
+	width: 200px;
+	height: 200px;
+}
+
+.lainlove{
+	width: 200px;
+	height: 200px;
+}
+
 h5 {
 	font-weight:normal;
 	}
