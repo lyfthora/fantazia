@@ -29,30 +29,61 @@
          
         <img border="0" id="giflain" src="/img/gif/ghost3.gif" alt="Lain" ></a>
  <script>
-var timegif = 500;
+var timegif = 250; // Tiempo en milisegundos para mostrar el GIF
+
+// Obtener el contador del localStorage
 var count = localStorage.getItem('redirectCount');
-if (count === null){
-    count = 0;
+
+// Si no existe, inicializarlo en 1
+if (count === null) {
+    count = 1;
 } else {
-    count = parseInt(count);
+    count = parseInt(count) + 1; // Incrementar el contador
 }
 
-count++;
+// Guardar el contador actualizado en el localStorage
 localStorage.setItem('redirectCount', count);
 
-var pages = ['pre-midblogN2.html','pre-midblogN3.html','pre-midblogN4.html','pre-midblogN5.html'];
+// Lista de páginas para redirigir aleatoriamente
+var pages = ['pre-midblogN2.html', 'pre-midblogN3.html', 'pre-midblogN4.html', 'pre-midblogN5.html','pre-midblogN1.html'];
 
-var nextPage;
-if(count <= 8){
-    nextPage = pages[Math.floor(Math.random() * pages.length)];
-} else{
-    nextPage = 'pre-midblogN6.html';
+// Obtener el GIF anterior del localStorage
+var lastGif = localStorage.getItem('lastGif');
+
+// Función para seleccionar un GIF aleatorio diferente al anterior
+function getNextPage() {
+    var nextPage;
+    var availablePages = pages.filter(function(page) {
+        // Asegurarse de que el GIF no sea el mismo que el anterior
+        return page !== lastGif;
+    });
+
+    if (availablePages.length > 0) {
+        nextPage = availablePages[Math.floor(Math.random() * availablePages.length)];
+    } else {
+        // Si todos los GIFs son los mismos, selecciona uno al azar
+        nextPage = pages[Math.floor(Math.random() * pages.length)];
+    }
+    
+    return nextPage;
 }
 
-setTimeout(function(){
+var nextPage;
+if (count <= 15) { // Número de redirecciones antes de finalizar
+    nextPage = getNextPage();
+} else {
+    nextPage = 'final-pre-midblogN6.html'; // Página final después de completar el bucle
+    localStorage.removeItem('redirectCount'); // Limpiar el contador
+    localStorage.removeItem('lastGif'); // Limpiar el GIF anterior
+}
+
+// Guardar el GIF actual en localStorage para la próxima redirección
+localStorage.setItem('lastGif', nextPage);
+
+// Redirigir a la siguiente página después del tiempo especificado
+setTimeout(function() {
     window.location.href = nextPage;
 }, timegif);
-
 
 
 // var timegif = 200;
