@@ -19,7 +19,14 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $username, $email, $password);
 
 if ($stmt->execute()) {
-    echo "Registro exitoso.";
+
+    session_start();
+    $_SESSION['loggedin'] = true;
+    $_SESSION['username'] = $username;
+
+
+    header("Location: createacc.php");
+    exit();
 } else {
     echo "Error: " . $stmt->error;
 }
