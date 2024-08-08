@@ -17,11 +17,12 @@
         <div class="dark">
           <div class="opacity">
             <div class="opacityContent2">
+              <form name="createForm" method="post" action="register.php">
               <p>User ID:</p>
               <input
                 class="text"
                 type="text"
-                name="User"
+                name="username"
                 size="25"
                 placeholder="michiko"
               />
@@ -33,6 +34,7 @@
                 name="email"
                 size="25"
                 placeholder="michiko@gmail.com"
+                required
               />
               <br />
              
@@ -43,6 +45,7 @@
                 size="25"
                 name="password"
                 placeholder="••••••••••••"
+                required
               />
               <br />
               <p>Confirm Pass:</p>
@@ -52,13 +55,14 @@
                 size="25"
                 name="confirm_password"
                 placeholder="••••••••••••"
+                required
               />
               <br />
-              <form name="createForm" method="post" action="/create-account">
-                <button class="button" type="submit">
-                  Create
-                </button>
+              <button class="button" type="submit">Create
+              </button>
+                
               </form>
+              
 
               <p class="descp">
                 <b>NOTE:</b> All love lain.All love lain.All love lain.All love lain. All love lain.All love lain.All love lain.All love lain. All love lain.All love lain.All love lain.All love lain. All love lain.
@@ -72,15 +76,7 @@
               <br />
               <img src="img/gif/LainLaugh.gif" alt="wired" />
             </div>
-            
 
-            <audio autoplay="on">
-              <source src="register.wav" type="audio/wav" />
-            </audio>
-
-            <audio loop="on" autoplay="on">
-              <source src="genjoh.mp3" type="audio/mpeg" />
-            </audio>
           </div>
         </div>
       </div>
