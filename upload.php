@@ -15,15 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profile_picture'])) {
         $stmt->bind_param("ss", $profile_picture, $username);
 
         if ($stmt->execute()) {
-            echo "Profile picture uploaded and saved to database.";
+            // Redirige al usuario a la página de dashboard
+            header("Location: dashboard.php");
+            exit();
         } else {
-            echo "Error saving to database.";
+            echo "Error saving to database: " . $stmt->error;
         }
 
         $stmt->close();
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "Sorry, there was an error uploading your file. Check if the directory exists and has write permissions.";
     }
 }
+
 $conn->close();
 ?>
