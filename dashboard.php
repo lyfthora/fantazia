@@ -42,46 +42,22 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesDashboard.css" />
     <title>Dashboard</title>
-    <style>
-        .upload-btn {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-
-        .post img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-    </style>
+    
 </head>
 <body>
     <h2>Welcome, <?php echo htmlspecialchars($username); ?></h2>
-    <p>Your profile picture:</p>
-    <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #ccc;" />
-    
-    <!-- Formulario para subir un nuevo post -->
-    <h3>Upload a Post</h3>
-    <form action="upload_post.php" method="post" enctype="multipart/form-data">
-        <textarea name="post_content" rows="4" cols="50" placeholder="What's on your mind?" required></textarea>
-        <br>
-        <input type="file" name="post_image" accept="image/*" />
-        <br>
-        <input type="submit" value="Upload Post" class="upload-btn" />
+    <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="profile" />
+    <hr>
+    <!-- Formulario para subir un nuevo post --> 
+    <form action="new_post.php" method="get">
+        <input type="submit" value="New post" class="upload-btn" />
     </form>
 
     <!-- Mostrar los posts del usuario -->
     <h3>Your Posts:</h3>
+    <div class="posts-container">  
     <?php if (empty($posts)) { ?>
         <p>You have not posted anything yet.</p>
     <?php } else { ?>
@@ -94,5 +70,6 @@ $conn->close();
             </div>
         <?php } ?>
     <?php } ?>
+    </div>
 </body>
 </html>
