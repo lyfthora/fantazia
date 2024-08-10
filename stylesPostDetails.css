@@ -16,12 +16,15 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
 }
 
 .post-header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    
+    
 }
 
 .profile-pic {
@@ -32,6 +35,24 @@ body {
     margin-right: 15px;
 }
 
+.profile-button-container {
+    display: flex;
+    align-items: center;
+    margin-left: 155px; 
+}
+
+.profile-btn {
+    background-color: #d2738a; 
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none; 
+}
+
 .user-info {
     display: flex;
     flex-direction: column;
@@ -40,7 +61,7 @@ body {
 .username {
     margin: 0;
     font-size: 16px;
-    color: #c1b492; /* Color del texto del nombre de usuario */
+    color: #c1b492; 
 }
 
 .post-date {
@@ -53,6 +74,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
 }
 
 .post-image {
@@ -80,6 +102,7 @@ body {
 
 .comment-section {
     margin-top: 20px;
+    
 }
 
 .write-comment {
@@ -110,6 +133,10 @@ body {
     display: flex;
     flex-direction: column;
     opacity:0.9;
+    overflow-y: auto;
+    max-height: 150px
+}.comments::-webkit-scrollbar {
+    display: none; /* Para Chrome, Safari y Opera */
 }
 
 .comment {

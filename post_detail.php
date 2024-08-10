@@ -81,6 +81,9 @@ $conn->close();
             <div class="user-info">
                 <h3 class="username"><?php echo htmlspecialchars($username); ?></h3>
             </div>
+            <div class="profile-button-container">
+                <a href="dashboard.php?username=<?php echo urlencode($username); ?>" class="profile-btn">Back to Profile</a>
+            </div>
         </div>
         <div class="post-content">
             <img src="<?php echo htmlspecialchars($post_image); ?>" alt="Post Image" class="post-image" />
