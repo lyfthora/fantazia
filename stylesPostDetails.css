@@ -10,8 +10,8 @@ body {
 }
 
 .post-detail-container {
-    background-color: #dfd5bc; 
-    background-image:url("/img/gif/bg205.gif");
+    background-color: #000000; 
+    background-image:url("img/gif/bg205.gif");
     width: 400px;
     padding: 20px;
     border-radius: 10px;
