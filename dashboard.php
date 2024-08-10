@@ -24,8 +24,8 @@ if (!$profile_picture) {
     $profile_picture = 'img/default-profile.png';
 }
 
-// Recupera los posts del usuario
-$stmt = $conn->prepare("SELECT post_content, post_image FROM posts WHERE username = ?");
+// Recupera los posts del usuario (incluye 'id')
+$stmt = $conn->prepare("SELECT id, post_content, post_image FROM posts WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -44,7 +44,6 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesDashboard.css" />
     <title>Dashboard</title>
-    
 </head>
 <body>
     <h2>Welcome, <?php echo htmlspecialchars($username); ?></h2>
@@ -63,10 +62,9 @@ $conn->close();
     <?php } else { ?>
         <?php foreach ($posts as $post) { ?>
             <div class="post">
-                <p><?php echo htmlspecialchars($post['post_content']); ?></p>
-                <?php if (!empty($post['post_image'])) { ?>
+                <a href="post_detail.php?id=<?php echo htmlspecialchars($post['id']); ?>">
                     <img src="<?php echo htmlspecialchars($post['post_image']); ?>" alt="Post Image" />
-                <?php } ?>
+                </a>
             </div>
         <?php } ?>
     <?php } ?>
