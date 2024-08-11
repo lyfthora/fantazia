@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>106!|\\|</title>
 
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
   </head>
 
   <body background="/img/gif/bg205.gif">
