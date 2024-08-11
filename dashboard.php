@@ -46,17 +46,21 @@ $conn->close();
     <title>Dashboard</title>
 </head>
 <body>
-    <h2>Welcome, <?php echo htmlspecialchars($username); ?></h2>
-    <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="profile" />
-    <hr>
-    <!-- Formulario para subir un nuevo post --> 
-    <form action="new_post.php" method="get">
-        <input type="submit" value="New post" class="upload-btn" />
-    </form>
+    <div class="profile-container">
+        <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="profile" />
+        <div class="profile-info">
+            <p class="username"><?php echo htmlspecialchars($username); ?></p>
+            
+        </div>
+    </div>
 
-    <!-- Mostrar los posts del usuario -->
-    <h3>Your Posts:</h3>
-    <div class="posts-container">  
+    <div class="new-post-btn">
+        <form action="new_post.php" method="get">
+            <input type="submit" value="new post +" class="upload-btn" />
+        </form>
+    </div>
+
+    <div class="posts-container">
     <?php if (empty($posts)) { ?>
         <p>You have not posted anything yet.</p>
     <?php } else { ?>

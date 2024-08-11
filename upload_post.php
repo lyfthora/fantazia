@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_SESSION['username'];
     $post_content = $_POST['post_content'];
 
-    // Manejo del archivo de imagen
+  
     if (isset($_FILES['post_image']) && $_FILES['post_image']['error'] == UPLOAD_ERR_OK) {
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["post_image"]["name"]);

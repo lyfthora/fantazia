@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "username", "password", "database_name"); 
+include 'db.php';
 
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
@@ -10,7 +10,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 // Recuperar la información del usuario logueado
 $username = $_SESSION['username'];
-$stmt = $conn->prepare("SELECT profile_picture FROM users WHERE username = ?");
+$stmt = $conn->prepare("SELECT profile_picture FROM usuarios WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $stmt->bind_result($profile_picture);

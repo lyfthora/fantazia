@@ -22,13 +22,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
     <!-- Formulario para la carga de la imagen -->
     <form action="upload.php" method="post" enctype="multipart/form-data">
-        <!-- GIF para hacer clic -->
+        >
         <img src="img/gif/LAINHADN3.gif" class="pic" id="upload-trigger" alt="Click to upload" />
 
-        <!-- Vista previa de la imagen elegida -->
         <img id="preview" src="" alt="Image Preview" style="display: none; width: 200px; height: 200px; margin-top: 20px;" />
 
-        <!-- Campo de archivo oculto -->
         <input type="file" name="profile_picture" id="file-input" accept="image/*" style="display: none;" />
         
         <p class="abajopagina"><b>No, Skip this shit</b></p>
