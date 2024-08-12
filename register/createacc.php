@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="stylesAcc-Creation.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/stylesAcc-Creation.css" />
     <title>Profile pic</title>
 </head>
 
@@ -22,8 +22,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
     <!-- Formulario para la carga de la imagen -->
     <form action="upload.php" method="post" enctype="multipart/form-data">
-        >
-        <img src="img/gif/LAINHADN3.gif" class="pic" id="upload-trigger" alt="Click to upload" />
+        
+        <img src="/img/gif/LAINHADN3.gif" class="pic" id="upload-trigger" alt="Click to upload" />
 
         <img id="preview" src="" alt="Image Preview" style="display: none; width: 200px; height: 200px; margin-top: 20px;" />
 

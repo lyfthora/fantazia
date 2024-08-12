@@ -49,7 +49,7 @@ body {
 }
 
 .upload-btn {
-    background-color: #d2738a; /* Color de fondo del botón de subir similar al de post-details.css */
+    background-color: #d2738a; 
     color: #fff;
     padding: 10px 20px;
     border: none;

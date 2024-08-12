@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php'; // Incluye el archivo de conexión a la base de datos
+include '../db.php'; 
 
 // Verifica si el usuario está logueado
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
@@ -21,7 +21,15 @@ $stmt->close();
 
 // Si no hay foto de perfil, usa una imagen por defecto
 if (!$profile_picture) {
-    $profile_picture = 'img/default-profile.png';
+    $profile_picture = '../img/default-profile.png';
+} else {
+    // Asegúrate de que la ruta sea accesible desde la ubicación actual
+    $profile_picture = '../register/uploads/' . basename($profile_picture);
+
+    // Verifica si el archivo existe
+    if (!file_exists($profile_picture)) {
+        $profile_picture = '../img/default-profile.png';
+    }
 }
 
 // Recupera los posts del usuario (incluye 'id')
@@ -42,7 +50,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="stylesDashboard.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/stylesDashboard.css" />
     <title>Dashboard</title>
 </head>
 <body>
@@ -64,7 +72,9 @@ $conn->close();
     <?php if (empty($posts)) { ?>
         <p>You have not posted anything yet.</p>
     <?php } else { ?>
-        <?php foreach ($posts as $post) { ?>
+        <?php foreach ($posts as $post) { 
+             $post_image_path = '../register/uploads/' . htmlspecialchars($post['post_image']);
+            ?>
             <div class="post">
                 <a href="post_detail.php?id=<?php echo htmlspecialchars($post['id']); ?>">
                     <img src="<?php echo htmlspecialchars($post['post_image']); ?>" alt="Post Image" />

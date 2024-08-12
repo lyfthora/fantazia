@@ -23,7 +23,7 @@
             </div>
 
             <div class="opacityContent2">
-            <form name="myForm" method="POST" action="login.php">
+            <form name="myForm" method="POST" action="login/login.php">
               <p>User ID:</p>
               
               <input

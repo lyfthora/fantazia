@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include '../db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
-            header("Location: dashboard.php");
+            header("Location: ../user/dashboard.php");
             exit();
         } else {
             $_SESSION['error'] = "Contraseña incorrecta.";

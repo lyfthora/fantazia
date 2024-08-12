@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include '../db.php';
 
 // Verifica si el usuario está logueado
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
@@ -28,7 +28,9 @@ $stmt->close();
 
 // Si no hay foto de perfil, usa una imagen por defecto
 if (!$profile_picture) {
-    $profile_picture = 'img/default-profile.png';
+    $profile_picture = '../img/default-profile.png';
+} else {
+    $profile_picture = '../register/uploads/' . basename($profile_picture);
 }
 
 // Procesar el comentario enviado
@@ -66,14 +68,12 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="stylesPostDetails.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/stylesPostDetails.css" />
     <title>Post Detail</title>
 </head>
-
 <body>
     <div class="post-detail-container">
         <div class="post-header">
@@ -86,7 +86,7 @@ $conn->close();
             </div>
         </div>
         <div class="post-content">
-            <img src="<?php echo htmlspecialchars($post_image); ?>" alt="Post Image" class="post-image" />
+            <img src="<?php echo htmlspecialchars('post_images/' . basename($post_image)); ?>" alt="Post Image" class="post-image" />
             <p class="post-text"><?php echo htmlspecialchars($post_content); ?></p>
             <p class="post-date"><?php echo htmlspecialchars(date("g:i A • m.d.y", strtotime($created_at))); ?></p>
         </div>
@@ -103,7 +103,7 @@ $conn->close();
             <div class="comments">
                 <?php foreach ($comments as $comment): ?>
                     <div class="comment">
-                        <img src="<?php echo htmlspecialchars($comment['profile_picture'] ?: 'img/default-profile.png'); ?>" alt="Comment Profile Picture" class="comment-profile-pic" />
+                        <img src="<?php echo htmlspecialchars('../register/uploads/' . basename($comment['profile_picture'] ?: 'default-profile.png')); ?>" alt="Comment Profile Picture" class="comment-profile-pic" />
                         <div class="comment-content">
                             <p><strong><?php echo htmlspecialchars($comment['username']); ?></strong></p>
                             <div class="comment-meta">
@@ -118,7 +118,5 @@ $conn->close();
             </div>
         </div>
     </div>
-
 </body>
-
 </html>

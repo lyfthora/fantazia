@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php'; // Incluye el archivo de conexión a la base de datos
+include '../db.php'; 
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: index.php");
@@ -11,12 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_SESSION['username'];
     $post_content = $_POST['post_content'];
 
-  
-    if (isset($_FILES['post_image']) && $_FILES['post_image']['error'] == UPLOAD_ERR_OK) {
-        $target_dir = "post_images";
-        $target_file = $target_dir . basename($_FILES["post_image"]["name"]);
+    $target_dir = "post_images/";
 
-       
+    if (isset($_FILES['post_image']) && $_FILES['post_image']['error'] == UPLOAD_ERR_OK) {
+        // Asegúrate de que los nombres de los archivos sean únicos
+        $target_file = $target_dir . uniqid() . "_" . basename($_FILES["post_image"]["name"]);
 
         if (move_uploaded_file($_FILES["post_image"]["tmp_name"], $target_file)) {
             $post_image = $target_file;
@@ -25,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
     } else {
-        $post_image = null; // No hay imagen
+        $post_image = null; 
     }
 
     // Inserta el post en la base de datos

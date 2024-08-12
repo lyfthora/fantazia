@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include '../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profile_picture'])) {
     $target_dir = "uploads/";
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profile_picture'])) {
 
         if ($stmt->execute()) {
             // Redirige al usuario a la página de dashboard
-            header("Location: dashboard.php");
+            header("Location: ../user/dashboard.php");
             exit();
         } else {
             echo "Error saving to database: " . $stmt->error;
