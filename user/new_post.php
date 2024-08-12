@@ -23,7 +23,7 @@ $username = $_SESSION['username'];
 </head>
 <body>
     <div class="container">
-        <a href="dashboard.php" class="back-btn">back to account</a>
+        <a href="dashboard.php" class="back-btn">back to profile</a>
         <button class="create-post-btn">★ create a post ★</button>
         <form action="upload_post.php" method="post" enctype="multipart/form-data">
             <div class="upload-container" id="uploadContainer">
@@ -34,7 +34,7 @@ $username = $_SESSION['username'];
                 <input type="file" name="post_image" accept="image/*" id="post_image" />
                 <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 305px;"/>
             </div>
-            <textarea name="post_content" rows="4" cols="50" placeholder="What's on your mind?" required style="display: none;"></textarea>
+            <textarea name="post_content" rows="4" cols="50" placeholder="Write write write..." required style="display: none;"></textarea>
             <input type="submit" value="Upload Post" class="upload-btn" style="display: none;" />
         </form>
     </div>

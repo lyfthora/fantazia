@@ -32,7 +32,7 @@ if (!$profile_picture) {
     }
 }
 
-// Recupera los posts del usuario (incluye 'id')
+
 $stmt = $conn->prepare("SELECT id, post_content, post_image FROM posts WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
@@ -64,7 +64,7 @@ $conn->close();
 
     <div class="new-post-btn">
         <form action="new_post.php" method="get">
-            <input type="submit" value="new post +" class="upload-btn" />
+            <input type="submit" value="new post" class="upload-btn" />
         </form>
     </div>
 
