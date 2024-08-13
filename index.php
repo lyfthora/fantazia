@@ -13,7 +13,6 @@
         <div class="dark">
           <div class="opacity">
             <img src="img/gif/laingod.gif" alt="wired" />
-
             <div class="opacityContent">
               <h1 id="intro">DAM 2.0</h1>
               <hr />
