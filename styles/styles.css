@@ -174,35 +174,7 @@ input {
 	
 	}
 	
-.darker {
-	position:relative;
-	width:100%;
-	height:100%;
-	background-image:url(bg_darker.gif);
-	animation: darkestDown 80s linear infinite;
-	
-	}
-	
-.dark {
-	position:relative;
-	width:100%;
-	height:100%;
-	background-image:url(bg_dark_anim_0_08.gif);
-	animation: darkest 60s linear infinite;
-	
-	}
-	
-.wiredGang {
-	position:relative;
-	width:100%;
-	height:100%;
-	background-image:url(wiredGang_04.gif);
-	background-repeat:repeat-x;
-	background-position:bottom;
-	animation: wiredGangAn 20s linear infinite;
-	
-	}
-	
+
 .opacity  {
 	position:relative;
 	width:100%;

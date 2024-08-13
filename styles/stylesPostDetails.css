@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #000000; 
-    color: #c1b492; 
+    color: #f0e68c; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +61,7 @@ body {
 .username {
     margin: 0;
     font-size: 16px;
-    color: #c1b492; 
+    color: #f0e68c; 
 }
 
 .post-date {
@@ -84,7 +84,7 @@ body {
 }
 
 .post-text {
-    background-color: #dfd5bc; 
+    background-color: #c1b492; 
     padding: 10px;
     border-radius: 10px;
     font-size: 14px;

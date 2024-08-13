@@ -8,8 +8,7 @@
   image-rendering: pixelated;
   font-smooth: never;
   -webkit-font-smoothing: none;
-  /*-moz-osx-font-smoothing: grayscale;
-	*/
+
 }
 
 body {
@@ -94,8 +93,8 @@ hr {
 
 .article pre,
 code {
-  letter-spacing: 0.1em; /* Asegura que el espaciado sea estándar */
-  text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+  letter-spacing: 0.1em; 
+  text-align: left; 
   font-size: 12px;
   text-align: justify;
 }
