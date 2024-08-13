@@ -20,7 +20,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <h2>Hello <?php echo htmlspecialchars($_SESSION['username']); ?>,<br> welcome</h2>
     <h1>Would you like to upload a profile picture?</h1>
 
-    <!-- Formulario para la carga de la imagen -->
+    
     <form action="upload.php" method="post" enctype="multipart/form-data">
         
         <img src="/img/gif/LAINHADN3.gif" class="pic" id="upload-trigger" alt="Click to upload" />

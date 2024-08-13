@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profile_picture'])) {
         $stmt->bind_param("ss", $profile_picture, $username);
 
         if ($stmt->execute()) {
-            // Redirige al usuario a la página de dashboard
+           
             header("Location: ../user/dashboard.php");
             exit();
         } else {

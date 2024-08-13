@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $target_dir = "post_images/";
 
     if (isset($_FILES['post_image']) && $_FILES['post_image']['error'] == UPLOAD_ERR_OK) {
-        // Asegúrate de que los nombres de los archivos sean únicos
+        // nombre de los archivos unicoss
         $target_file = $target_dir . uniqid() . "_" . basename($_FILES["post_image"]["name"]);
 
         if (move_uploaded_file($_FILES["post_image"]["tmp_name"], $target_file)) {
@@ -27,12 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $post_image = null; 
     }
 
-    // Inserta el post en la base de datos
+    // post insertar en la bbdd
     $stmt = $conn->prepare("INSERT INTO posts (username, post_content, post_image) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $username, $post_content, $post_image);
 
     if ($stmt->execute()) {
-        header("Location: dashboard.php"); // Redirige al dashboard después de subir el post
+        header("Location: dashboard.php"); 
         exit();
     } else {
         echo "Error: " . $stmt->error;

@@ -33,7 +33,7 @@ if (!$profile_picture) {
     $profile_picture = '../register/uploads/' . basename($profile_picture);
 }
 
-// Procesar el comentario enviado
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
     $comment = trim($_POST['comment']);
     $comment_user = $_SESSION['username']; // Asumiendo que el nombre de usuario está en la sesión
@@ -45,12 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
         $stmt->close();
     }
 
-    // Redirigir para evitar el reenvío del formulario al actualizar la página
+   
     header("Location: post_detail.php?id=" . $post_id);
     exit();
 }
 
-// Recuperar los comentarios del post
+
 $comments = [];
 $stmt = $conn->prepare("SELECT c.comment_text, c.created_at, u.username, u.profile_picture 
                         FROM comments c 
