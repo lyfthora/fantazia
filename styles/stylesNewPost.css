@@ -40,7 +40,6 @@ body, html {
     border: 1px solid #f0e68c;
     border-radius: 20px;
     font-size: 16px;
-    cursor: pointer;
     margin-bottom: 20px;
 }
 
@@ -144,6 +143,8 @@ b {
 .help-link {
     color: #d2738a;
     text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 8px;
 }
 
 .help-link:hover {

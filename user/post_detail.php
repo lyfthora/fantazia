@@ -2,20 +2,20 @@
 session_start();
 include '../db.php';
 
-// Verifica si el usuario está logueado
+
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: index.php");
     exit();
 }
 
-// Recupera el ID del post desde el parámetro GET
+
 if (!isset($_GET['id'])) {
     header("Location: dashboard.php");
     exit();
 }
 $post_id = $_GET['id'];
 
-// Recupera la información del post y del usuario que lo creó
+
 $stmt = $conn->prepare("SELECT p.post_content, p.post_image, p.created_at, u.username, u.profile_picture 
                         FROM posts p 
                         JOIN usuarios u ON p.username = u.username 
@@ -26,7 +26,7 @@ $stmt->bind_result($post_content, $post_image, $created_at, $username, $profile_
 $stmt->fetch();
 $stmt->close();
 
-// Si no hay foto de perfil, usa una imagen por defecto
+
 if (!$profile_picture) {
     $profile_picture = '../img/default-profile.png';
 } else {
@@ -99,7 +99,7 @@ $conn->close();
                     </div>
                 </form>
             </div>
-            <!-- Aquí se mostrarán los comentarios -->
+         
             <div class="comments">
                 <?php foreach ($comments as $comment): ?>
                     <div class="comment">
