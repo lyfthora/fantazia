@@ -55,7 +55,8 @@ body, html {
      display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center
+    text-align: center;
+    
 }
 
 
@@ -63,6 +64,8 @@ body, html {
 .upload-container {
     position: relative;
     overflow: hidden;
+    z-index: 1;
+    
 }
 
 #post_image {
@@ -114,6 +117,8 @@ textarea, .upload-btn {
 
 .upload-btn {
     cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 footer {
@@ -128,11 +133,16 @@ footer {
 .note {
     font-size: 0.8em;
     margin-bottom: 10px;
-    color: #ff69b4;
+    color: #f0e68c;
 }
 
+b {
+	color:#d2738a;	
+	letter-spacing:8px;
+	}
+
 .help-link {
-    color: #ff69b4;
+    color: #d2738a;
     text-decoration: none;
 }
 
@@ -144,4 +154,5 @@ img.distance{
     position: absolute;
     top:65%;
     left: 49%;
+    z-index: 1;
 }

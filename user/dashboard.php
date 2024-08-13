@@ -1,17 +1,17 @@
 <?php
 session_start();
-include '../db.php'; 
+include '../db.php';
 
-// Verifica si el usuario está logueado
+
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: index.php");
     exit();
 }
 
-// Recupera la información del usuario logueado
+
 $username = $_SESSION['username'];
 
-// Recupera la foto de perfil del usuario
+// foto de perfil del usuario
 $stmt = $conn->prepare("SELECT profile_picture FROM usuarios WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
@@ -19,14 +19,14 @@ $stmt->bind_result($profile_picture);
 $stmt->fetch();
 $stmt->close();
 
-// Si no hay foto de perfil, usa una imagen por defecto
+
 if (!$profile_picture) {
     $profile_picture = '../img/default-profile.png';
 } else {
-    // Asegúrate de que la ruta sea accesible desde la ubicación actual
+
     $profile_picture = '../register/uploads/' . basename($profile_picture);
 
-    // Verifica si el archivo existe
+
     if (!file_exists($profile_picture)) {
         $profile_picture = '../img/default-profile.png';
     }
@@ -47,19 +47,23 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/stylesDashboard.css" />
     <title>Dashboard</title>
 </head>
+
 <body>
     <div class="profile-container">
         <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="profile" />
         <div class="profile-info">
             <p class="username"><?php echo htmlspecialchars($username); ?></p>
-            
         </div>
+        <form action="../login/logout.php" method="post">
+            <input type="submit" value="Log Out" class="logout-btn" />
+        </form>
     </div>
 
     <div class="new-post-btn">
@@ -69,19 +73,20 @@ $conn->close();
     </div>
 
     <div class="posts-container">
-    <?php if (empty($posts)) { ?>
-        <p>You have not posted anything yet.</p>
-    <?php } else { ?>
-        <?php foreach ($posts as $post) { 
-             $post_image_path = '../register/uploads/' . htmlspecialchars($post['post_image']);
+        <?php if (empty($posts)) { ?>
+            <p>You have not posted anything yet.</p>
+        <?php } else { ?>
+            <?php foreach ($posts as $post) {
+                $post_image_path = '../register/uploads/' . htmlspecialchars($post['post_image']);
             ?>
-            <div class="post">
-                <a href="post_detail.php?id=<?php echo htmlspecialchars($post['id']); ?>">
-                    <img src="<?php echo htmlspecialchars($post['post_image']); ?>" alt="Post Image" />
-                </a>
-            </div>
+                <div class="post">
+                    <a href="post_detail.php?id=<?php echo htmlspecialchars($post['id']); ?>">
+                        <img src="<?php echo htmlspecialchars($post['post_image']); ?>" alt="Post Image" />
+                    </a>
+                </div>
+            <?php } ?>
         <?php } ?>
-    <?php } ?>
     </div>
 </body>
+
 </html>

@@ -15,7 +15,7 @@
 	
 body {
 	background-color:black;
-	color:#c1b492;
+	color:#f0e68c;
 	letter-spacing:8px;
 	image-rendering: pixelated;
 	font-smooth: never;
@@ -88,7 +88,7 @@ a {
 	}
 
 hr {
-	border-color:#c1b492;
+	border-color:#f0e68c;
 	display:inline-block;
 	width:170px;
 	border-style:solid;
@@ -113,7 +113,7 @@ a:visited {
 	}
 	
 a:hover {
-	color:#c1b492;
+	color:#f0e68c;
 
 	}
 	
@@ -122,7 +122,7 @@ a:active {
 	}
 	
 .text {	
-	background-color:#dfd5bc;
+	background-color:#f0e68c;
 	height:18px;
 	text-align:center;
 	margin-bottom:12px;
@@ -147,7 +147,7 @@ input {
 	}
 	
 .button {
-	color:#dfd5bc;
+	color:#f0e68c;
 	background-color:rgba(0,0,0,0.0);
 	width:100px;
 	cursor:pointer;
@@ -160,7 +160,7 @@ input {
 	border-radius:20px;
 	border-style: solid;
     border-width: 2px;
-	border-color:#dfd5bc;
+	border-color:#f0e68c;
 	line-height:16px;
 	margin-bottom:100px;
 	

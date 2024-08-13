@@ -1,8 +1,8 @@
-/* Estilo general */
+
 body {
-    background-color: #000000; /* Mismo fondo negro */
+    background-color: #000000; 
     font-family: Arial, sans-serif;
-    color: #c1b492; /* Color de texto similar al de post-details.css */
+    color: #f0e68c; 
     text-align: center;
     margin: 0;
     padding: 0;
@@ -13,17 +13,28 @@ body {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    background-color: #000000; /* Fondo negro */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra similar a la de post-details.css */
+    background-color: #000000; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
     justify-content: space-between;
     border-radius: 20px;
     width: 90%;
     margin: 20px auto;
 }
+.logout-btn {
+    background-color: #1a1a1a;
+    color: #f0e68c; 
+    padding: 10px 20px;
+    border: 1px solid #f0e68c; 
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: auto;
+}
+
 
 .profile {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -31,17 +42,18 @@ body {
 .profile-info {
     text-align: left;
     flex-grow: 1;
-    margin-left: 10px;
+    margin-left: 12px;
+    margin-bottom: 7px;
 }
 
 .username {
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #c1b492; /* Color de texto similar al de post-details.css */
+    color: #f0e68c; 
 }
 
-/* Botón de nuevo post */
+
 .new-post-btn {
     margin: 10px auto;
     width: 90%;
@@ -49,19 +61,17 @@ body {
 }
 
 .upload-btn {
-    background-color: #d2738a; 
-    color: #fff;
+    background-color: #1a1a1a; 
+    color: #f0e68c; 
     padding: 10px 20px;
-    border: none;
+    border: 1px solid #f0e68c; 
     border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     width: 100%;
 }
 
-.upload-btn:hover {
-    background-color: #d2738a; /* Color de fondo del botón en hover */
-}
+
 
 /* Contenedor de posts */
 .posts-container {
@@ -77,8 +87,8 @@ body {
     border-radius: 10px;
     width: 166px;
     height: 166px;
-    background-color: #000000; /* Fondo negro */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra similar a la de post-details.css */
+    background-color: #000000; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .post img {

@@ -24,11 +24,11 @@ $username = $_SESSION['username'];
 <body>
     <div class="container">
         <a href="dashboard.php" class="back-btn">back to profile</a>
+        <!-- Botón sin funcionalidad -->
         <button class="create-post-btn">★ create a post ★</button>
         <form action="upload_post.php" method="post" enctype="multipart/form-data">
             <div class="upload-container" id="uploadContainer">
                 <div class="upload-content">
-  
                     <p>upload an<br>image</p>
                 </div>
                 <input type="file" name="post_image" accept="image/*" id="post_image" />
@@ -40,16 +40,11 @@ $username = $_SESSION['username'];
     </div>
     <img src="../img/gif/distance2.gif" class="distance">
     <footer>
-        <p class="note">NOTE: All love lain. All love lain. All love lain. All love lain.</p>
-        <a href="#" class="help-link">Help & Guidelines</a>
+        <p class="note"><b>NOTE:</b> All love lain. All love lain. All love lain. All love lain.</p>
+        <a href="../lainalone.html" class="help-link">Help & Guidelines</a>
     </footer>
 
     <script>
-        document.querySelector('.create-post-btn').addEventListener('click', function() {
-            document.querySelector('textarea').style.display = 'block';
-            document.querySelector('.upload-btn').style.display = 'block';
-        });
-
         document.getElementById('post_image').addEventListener('change', function(event) {
             var file = event.target.files[0];
             var reader = new FileReader();
