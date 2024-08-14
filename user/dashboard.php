@@ -46,8 +46,7 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+        <div class="footer-buttons">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,5 +87,16 @@ $conn->close();
         <?php } ?>
     </div>
 </body>
+<!-- Footer con los botones para ver todos los posts y el perfil -->
+<footer class="dashboard-footer">
+        <div class="footer-buttons">
+            <form action="all_post.php" method="get">
+                <input type="submit" value="View All Posts" class="footer-btn" />
+            </form>
+            <form action="profile.php" method="get">
+                <input type="submit" value="View Profile" class="footer-btn" />
+            </form>
+        </div>
+    </footer>
 
 </html>
