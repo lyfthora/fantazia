@@ -1,91 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEFJTiBDSEVDSw==</title>
-    <body>
-        <body bgcolor="#000000">
-        
+
+<body>
+
+    <body bgcolor="#000000">
+
         <div align="center">
-           
-         <TITLE>create</TITLE>
-        
-        
-        <style>
-          img {
-           position: absolute;
-           top: 50%;
-           left: 50%;
-           width: 850px;
-           height: 800px;
-           margin-top: -300px;
-           margin-left: -450px;
-        }
-    ::-webkit-scrollbar {
-    width: 0px;  
+
+            <style>
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 850px;
+                    height: 800px;
+                    margin-top: -300px;
+                    margin-left: -450px;
+                }
+
+                ::-webkit-scrollbar {
+                    width: 0px;
+
+                }
+            </style>
+
+
+
+            <img border="0" id="giflain" src="img/gif/whoo.gif" alt="Lain" width="95" height="800">
+
+            <script>
+                var timegif = 250;
+
+                var count = localStorage.getItem('redirectCount');
+
+                if (count === null) {
+                    count = 1;
+                } else {
+                    count = parseInt(count) + 1;
+                }
+
+
+                localStorage.setItem('redirectCount', count);
+
+                var pages = ['pre-midblogN2.html', 'pre-midblogN3.html', 'pre-midblogN4.html', 'pre-midblogN5.html', 'pre-midblogN1.html'];
+
+                var lastGif = localStorage.getItem('lastGif');
+
+                function getNextPage() {
+                    var nextPage;
+                    var availablePages = pages.filter(function (page) {
+
+                        return page !== lastGif;
+                    });
+
+                    if (availablePages.length > 0) {
+                        nextPage = availablePages[Math.floor(Math.random() * availablePages.length)];
+                    } else {
+
+                        nextPage = pages[Math.floor(Math.random() * pages.length)];
+                    }
+
+                    return nextPage;
+                }
+
+                var nextPage;
+                if (count <= 15) {
+                    nextPage = getNextPage();
+                } else {
+                    nextPage = 'final-pre-midblogN6.html';
+                    localStorage.removeItem('redirectCount');
+                    localStorage.removeItem('lastGif');
+                }
+
+
+                localStorage.setItem('lastGif', nextPage);
+
+                setTimeout(function () {
+                    window.location.href = nextPage;
+                }, timegif);
+
+
+            </script>
+            </div>
+    </body>
     
-}
-          
-        </style>
-        
-     
-         
-        <img border="0" id="giflain" src="img/gif/whoo.gif" alt="Lain" width="95" height="800">
 
- <script>
-var timegif = 250;
-
-var count = localStorage.getItem('redirectCount');
-
-if (count === null) {
-    count = 1;
-} else {
-    count = parseInt(count) + 1; 
-}
-
-
-localStorage.setItem('redirectCount', count);
-
-var pages = ['pre-midblogN2.html', 'pre-midblogN3.html', 'pre-midblogN4.html', 'pre-midblogN5.html','pre-midblogN1.html'];
-
-var lastGif = localStorage.getItem('lastGif');
-
-function getNextPage() {
-    var nextPage;
-    var availablePages = pages.filter(function(page) {
-       
-        return page !== lastGif;
-    });
-
-    if (availablePages.length > 0) {
-        nextPage = availablePages[Math.floor(Math.random() * availablePages.length)];
-    } else {
-      
-        nextPage = pages[Math.floor(Math.random() * pages.length)];
-    }
-    
-    return nextPage;
-}
-
-var nextPage;
-if (count <= 15) { 
-    nextPage = getNextPage();
-} else {
-    nextPage = 'final-pre-midblogN6.html'; 
-    localStorage.removeItem('redirectCount'); 
-    localStorage.removeItem('lastGif'); 
-}
-
-
-localStorage.setItem('lastGif', nextPage);
-
-setTimeout(function() {
-    window.location.href = nextPage;
-}, timegif);
-
-
-</script>  
-        </body>    
-    </div>
-        </html>
+</html>

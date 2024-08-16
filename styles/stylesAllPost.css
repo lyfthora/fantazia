@@ -1,4 +1,5 @@
 body {
+    background: url(../img/gif/bg.gif);
     font-family: 'Courier New', monospace;
     background-color: #000;
     margin: 0;
@@ -12,7 +13,7 @@ body {
 
 .posts-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     margin: 20px auto;
     padding: 20px;
 }
@@ -39,7 +40,7 @@ body {
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ddd;
+    border: 2px solid #f0e68c;
 }
 
 .post-username {

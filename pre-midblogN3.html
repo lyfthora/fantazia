@@ -1,96 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>.-../.-/../-.//----/./-.-./-.-////</title>
-    <body>
-        <body bgcolor="#000000">
-        
+
+<body>
+
+    <body bgcolor="#000000">
+
         <div align="center">
-           
-         <TITLE>create</TITLE>
-        
-        
-        <style>
-          img {
-           position: absolute;
-           top: 50%;
-           left: 50%;
-           width: 850px;
-           height: 600px;
-           margin-top: -300px;
-           margin-left: -450px;
-        }
-          
-        </style>
-        
-        
-         
-        <img border="0" id="giflain" src="img/gif/pcLain3.gif" alt="Lain" >
- <script>
-var timegif = 250; 
+
+            <style>
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 850px;
+                    height: 600px;
+                    margin-top: -300px;
+                    margin-left: -450px;
+                }
+            </style>
 
 
-var count = localStorage.getItem('redirectCount');
+
+            <img border="0" id="giflain" src="img/gif/pcLain3.gif" alt="Lain">
+            <script>
+                var timegif = 250;
 
 
-if (count === null) {
-    count = 1;
-} else {
-    count = parseInt(count) + 1; 
-}
+                var count = localStorage.getItem('redirectCount');
 
 
-localStorage.setItem('redirectCount', count);
+                if (count === null) {
+                    count = 1;
+                } else {
+                    count = parseInt(count) + 1;
+                }
 
 
-var pages = ['pre-midblogN2.html', 'pre-midblogN3.html', 'pre-midblogN4.html', 'pre-midblogN5.html','pre-midblogN1.html'];
+                localStorage.setItem('redirectCount', count);
 
 
-var lastGif = localStorage.getItem('lastGif');
+                var pages = ['pre-midblogN2.html', 'pre-midblogN3.html', 'pre-midblogN4.html', 'pre-midblogN5.html', 'pre-midblogN1.html'];
 
 
-function getNextPage() {
-    var nextPage;
-    var availablePages = pages.filter(function(page) {
-     
-        return page !== lastGif;
-    });
-
-    if (availablePages.length > 0) {
-        nextPage = availablePages[Math.floor(Math.random() * availablePages.length)];
-    } else {
-      
-        nextPage = pages[Math.floor(Math.random() * pages.length)];
-    }
-    
-    return nextPage;
-}
-
-var nextPage;
-if (count <= 15) { 
-    nextPage = getNextPage();
-} else {
-    nextPage = 'final-pre-midblogN6.html'; 
-    localStorage.removeItem('redirectCount'); 
-    localStorage.removeItem('lastGif'); 
-}
+                var lastGif = localStorage.getItem('lastGif');
 
 
-localStorage.setItem('lastGif', nextPage);
+                function getNextPage() {
+                    var nextPage;
+                    var availablePages = pages.filter(function (page) {
 
-setTimeout(function() {
-    window.location.href = nextPage;
-}, timegif);
+                        return page !== lastGif;
+                    });
 
-// var timegif = 200;
-// setTimeout(function(){
-//     window.location.href = 'pre-midblogN4';
+                    if (availablePages.length > 0) {
+                        nextPage = availablePages[Math.floor(Math.random() * availablePages.length)];
+                    } else {
 
-// },timegif);
+                        nextPage = pages[Math.floor(Math.random() * pages.length)];
+                    }
 
-</script>  
-        </body>    
-    </div>
-        </html>
+                    return nextPage;
+                }
+
+                var nextPage;
+                if (count <= 15) {
+                    nextPage = getNextPage();
+                } else {
+                    nextPage = 'final-pre-midblogN6.html';
+                    localStorage.removeItem('redirectCount');
+                    localStorage.removeItem('lastGif');
+                }
+
+
+                localStorage.setItem('lastGif', nextPage);
+
+                setTimeout(function () {
+                    window.location.href = nextPage;
+                }, timegif);
+
+                // var timegif = 200;
+                // setTimeout(function(){
+                //     window.location.href = 'pre-midblogN4';
+
+                // },timegif);
+
+            </script>
+        </div>
+    </body>
+
+</html>
