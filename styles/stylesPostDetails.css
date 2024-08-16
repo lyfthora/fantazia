@@ -136,7 +136,7 @@ body {
     overflow-y: auto;
     max-height: 150px
 }.comments::-webkit-scrollbar {
-    display: none; /* Para Chrome, Safari y Opera */
+    display: none; /* Para Chrome, Safari y Opera. */
 }
 
 .comment {
