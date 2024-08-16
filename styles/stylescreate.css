@@ -14,11 +14,11 @@
 	}
 	
 body {
+	background: url(../img/gif/bg.gif); /*remove maybe (? or change gif...*/
 	background-color:black;
 	color:#f0e68c ;
 	letter-spacing:8px;
 	image-rendering: pixelated;
-	font-smooth: never;
 	-webkit-font-smoothing: none;
 	text-align:center;
     overflow: hidden;
