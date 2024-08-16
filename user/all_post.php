@@ -47,7 +47,7 @@ $conn->close();
                 // Ruta de la foto de perfil
                 $profile_picture = $post['profile_picture'] ? '../register/uploads/' . basename($post['profile_picture']) : '../img/default-profile.png';
                 if (!file_exists($profile_picture)) {
-                    $profile_picture = '../img/default-profile.png';
+                    $profile_picture = '../img/shifu.png';
                 }
 
                 // Ruta de la imagen del post
