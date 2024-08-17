@@ -97,3 +97,19 @@ body {
     object-fit: cover;
     border-radius: 10px;
 }
+.dashboard-footer{
+padding-top: 24%;
+}   
+  
+.footer-buttons {
+display: flex;
+align-items: center;
+justify-content: space-around;
+gap: 450px;
+}
+
+.footer-img {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
