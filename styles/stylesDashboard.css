@@ -98,7 +98,7 @@ body {
     border-radius: 10px;
 }
 .dashboard-footer{
-padding-top: 24%;
+padding-top: 23%;
 }   
   
 .footer-buttons {
@@ -109,7 +109,15 @@ gap: 450px;
 }
 
 .footer-img {
-    width: 50px;
+    width: 77px;
     height: auto;
     cursor: pointer;
+    padding-top: 0px;
+}
+
+.footer-img1 {
+    width: 41px;
+    height: auto;
+    cursor: pointer;
+    padding-top: 0px;
 }

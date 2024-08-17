@@ -1,4 +1,5 @@
 body {
+    background: url('../img/gif/bg.gif');
     font-family: 'Arial', sans-serif;
     background-color: #000000; 
     color: #f0e68c; 
@@ -10,8 +11,7 @@ body {
 }
 
 .post-detail-container {
-    background-color: #000000; 
-    background-image:url("/img/gif/bg205.gif");
+    
     width: 400px;
     padding: 20px;
     border-radius: 10px;

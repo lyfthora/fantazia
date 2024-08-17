@@ -90,12 +90,12 @@ $conn->close();
     <div class="footer-buttons">
        
         <a href="all_post.php">
-            <img src="../img/lainlogo_black.png" alt="View All Posts" class="footer-img">
+            <img src="../img/gif/16c.gif" alt="View All Posts" class="footer-img">
         </a>
 
       
         <a href="dashboard.php">
-            <img src="../img/lainlogo.png" alt="Dashboard" class="footer-img">
+            <img src="../img/gif/IAMGOD.gif" alt="Dashboard" class="footer-img1">
         </a>
     </div>
 </footer>
