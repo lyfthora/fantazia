@@ -39,101 +39,95 @@ $conn->close();
 </head>
 
 <body>
-    <div class="posts-container">
-        <?php if (empty($posts)) { ?>
-            <p>No posts available.</p>
-        <?php } else { ?>
-            <?php foreach ($posts as $post) {
+<div class="posts-container">
+    <?php if (empty($posts)) { ?>
+        <p>No posts available.</p>
+    <?php } else { ?>
+        <?php foreach ($posts as $post) {
 
-                $profile_picture = $post['profile_picture'] ? '../register/uploads/' . basename($post['profile_picture']) : '../img/default-profile.png';
-                if (!file_exists($profile_picture)) {
-                    $profile_picture = '../img/shifu.png';
-                }
+            $profile_picture = $post['profile_picture'] ? '../register/uploads/' . basename($post['profile_picture']) : '../img/default-profile.png';
+            if (!file_exists($profile_picture)) {
+                $profile_picture = '../img/shifu.png';
+            }
 
-
-                $post_image_path = 'post_images/' . basename($post['post_image']);
-            ?>
-                <div class="post">
-                    <div class="post-header">
-                        <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="post-profile-picture" />
-                        <p class="post-username"><?php echo htmlspecialchars($post['username']); ?></p>
-
+            $post_image_path = 'post_images/' . basename($post['post_image']);
+        ?>
+            <div class="post">
+                <div class="post-header">
+                    <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="post-profile-picture" />
+                    <p class="post-username"><?php echo htmlspecialchars($post['username']); ?></p>
+                </div>
+                <div class="post-content">
+                    <?php if (!empty($post['post_image'])) { ?>
+                        <img src="<?php echo htmlspecialchars($post_image_path); ?>" alt="Post Image" class="post-image" />
+                    <?php } ?>
+                    <!-- Contenedor para el texto y la fecha -->
+                    <div class="post-text-container">
+                        <div class="post-text">
+                            <p><?php echo htmlspecialchars($post['post_content']); ?></p>
+                        </div>
                     </div>
-                    <div class="post-content">
-                        <?php if (!empty($post['post_image'])) { ?>
-                            <img src="<?php echo htmlspecialchars($post_image_path); ?>" alt="Post Image" class="post-image" />
-                        <?php } ?>
+                    <div class="post-date"><?php echo htmlspecialchars(date("g:i A • m.d.y", strtotime($post['created_at']))); ?></div>
 
-                        <!-- Contenedor para el texto y la fecha -->
-                        <div class="post-text-container">
-                            <div class="post-text">
-                                <p><?php echo htmlspecialchars($post['post_content']); ?></p>
-                            </div>
-
+                    <!-- Contenedor los comments-->
+                    <div class="post-comments-meta">
+                        <div class="comments-icon" onclick="toggleComments(<?php echo htmlspecialchars($post['id']); ?>)">
+                            <span class="material-symbols-outlined">chat_bubble_outline</span>
+                            <span><?php echo htmlspecialchars($post['comment_count']); ?></span>
                         </div>
-                        <div class="post-date"><?php echo htmlspecialchars(date("g:i A • m.d.y", strtotime($post['created_at']))); ?></div>
-
-                        <!-- Contenedor los commentsss-->
-                        <div class="post-comments-meta">
-                            <div class="comments-icon" onclick="toggleComments(<?php echo htmlspecialchars($post['id']); ?>)">
-                                <span class="material-symbols-outlined">chat_bubble_outline</span>
-                                <span><?php echo htmlspecialchars($post['comment_count']); ?></span>
-                            </div>
-                        </div>
-                        <div class="post-comments-container" id="comments-<?php echo htmlspecialchars($post['id']); ?>" style="display: none;"></div>
-                        <!--nuevos comments sobre el post -->
+                    </div>
+                    <div class="post-comments-container" id="comments-<?php echo htmlspecialchars($post['id']); ?>" style="display: none;">
                         <div class="comments-list"></div>
 
-                        <!--agregar lso comments -->
+                        <!-- Agregar los comentarios -->
                         <div class="comment-form">
-                            <textarea id="comment-test-<?php echo htmlspecialchars($post['id']);?>" placeholder="Write write write.."></textarea>
+                            <textarea id="comment-text-<?php echo htmlspecialchars($post['id']); ?>" placeholder="Write your comment..."></textarea>
                             <button onclick="postComment(<?php echo htmlspecialchars($post['id']); ?>)">Post Comment</button>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
+            </div>
         <?php } ?>
-    </div>
+    <?php } ?>
+</div>
     <script>
-    function toggleComments(postId) {
-    console.log(postId);  
+       function toggleComments(postId) {
     const commentsContainer = document.getElementById('comments-' + postId);
-    
+    const commentForm = commentsContainer.querySelector('.comment-form');
+
     if (commentsContainer.style.display === 'block') {
-      
         commentsContainer.style.display = 'none';
     } else {
-    
-    fetch(`get_comments.php?post_id=${postId}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);  
-            if (data.length > 0) {
-                let commentsHTML = '';
-                data.forEach(comment => {
-                    const profilePic = comment.profile_picture ? '../register/' + comment.profile_picture : '../img/default-profile.png';
-                    commentsHTML += `
-                        <div class="comment">
-                            <div class="comment-header">
-                                <img src="${profilePic}" alt="Profile Picture" class="comment-profile-picture" />
-                                <p class="comment-username">${comment.username}</p>
-                            </div>
-                            <p class="comment-content">${comment.comment_content}</p>
-                            <p class="comment-date">${new Date(comment.created_at).toLocaleString()}</p>
-                        </div>`;
-                });
-                commentsContainer.innerHTML = commentsHTML;
-            } else {
-                commentsContainer.innerHTML = '<p>No comments.</p>';
-            }
-            commentsContainer.style.display = 'block';
-        })
-        .catch(error => console.error('Error fetching comments:', error));
-        }
+        fetch(`get_comments.php?post_id=${postId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    let commentsHTML = '';
+                    data.forEach(comment => {
+                        const profilePic = comment.profile_picture ? '../register/' + comment.profile_picture : '../img/default-profile.png';
+                        commentsHTML += `
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <img src="${profilePic}" alt="Profile Picture" class="comment-profile-picture" />
+                                    <p class="comment-username">${comment.username}</p>
+                                </div>
+                                <p class="comment-content">${comment.comment_content}</p>
+                                <p class="comment-date">${new Date(comment.created_at).toLocaleString()}</p>
+                            </div>`;
+                    });
+                    commentsContainer.querySelector('.comments-list').innerHTML = commentsHTML;
+                } else {
+                    commentsContainer.querySelector('.comments-list').innerHTML = '<p>No comments.</p>';
+                }
 
+                commentsContainer.style.display = 'block';
+                
+            })
+            .catch(error => console.error('Error fetching comments:', error));
     }
+}
 
-    function postComment(postId) {
+function postComment(postId) {
     const commentText = document.getElementById('comment-text-' + postId).value;
 
     if (commentText.trim() === '') {
@@ -154,18 +148,40 @@ $conn->close();
     .then(response => response.json())
     .then(result => {
         if (result.status === 'success') {
-            
+            // Clear the textarea
             document.getElementById('comment-text-' + postId).value = '';
-        
-            toggleComments(postId);
+
+            // Reload comments without toggling the visibility
+            fetch(`get_comments.php?post_id=${postId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        let commentsHTML = '';
+                        data.forEach(comment => {
+                            const profilePic = comment.profile_picture ? '../register/' + comment.profile_picture : '../img/default-profile.png';
+                            commentsHTML += `
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <img src="${profilePic}" alt="Profile Picture" class="comment-profile-picture" />
+                                        <p class="comment-username">${comment.username}</p>
+                                    </div>
+                                    <p class="comment-content">${comment.comment_content}</p>
+                                    <p class="comment-date">${new Date(comment.created_at).toLocaleString()}</p>
+                                </div>`;
+                        });
+                        document.querySelector(`#comments-${postId} .comments-list`).innerHTML = commentsHTML;
+                    } else {
+                        document.querySelector(`#comments-${postId} .comments-list`).innerHTML = '<p>No comments.</p>';
+                    }
+                })
+                .catch(error => console.error('Error fetching comments:', error));
         } else {
             alert('Error posting comment: ' + result.message);
         }
     })
     .catch(error => console.error('Error posting comment:', error));
 }
-
-</script>
+    </script>
 </body>
 
 </html>
