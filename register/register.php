@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (mysqli_sql_exception $e) {
 
         if ($e->getCode() == 1062) {
-            $_SESSION['error'] = "Username or email already exists!";
+            $_SESSION['error'] = "Username or email already exists..";
         } else {
             $_SESSION['error'] = "An error occurred: " . $e->getMessage();
         }
