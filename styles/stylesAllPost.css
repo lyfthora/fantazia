@@ -94,6 +94,7 @@ body {
     color: #f0e68c; 
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .comments-icon .material-symbols-outlined {
