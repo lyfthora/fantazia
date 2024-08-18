@@ -73,7 +73,7 @@ $conn->close();
                         </div>
                         <div class="post-date"><?php echo htmlspecialchars(date("g:i A • m.d.y", strtotime($post['created_at']))); ?></div>
 
-                        <!-- Contenedor para el ícono de comentarios y el número -->
+                        <!-- Contenedor los commentsss-->
                         <div class="post-comments-meta">
                             <div class="comments-icon" onclick="toggleComments(<?php echo htmlspecialchars($post['id']); ?>)">
                                 <span class="material-symbols-outlined">chat_bubble_outline</span>
@@ -81,7 +81,13 @@ $conn->close();
                             </div>
                         </div>
                         <div class="post-comments-container" id="comments-<?php echo htmlspecialchars($post['id']); ?>" style="display: none;"></div>
+                        <!--nuevos comments sobre el post -->
+                        <div class="comments-list"></div>
 
+                        <!--agregar lso comments -->
+                        <div class="comment-form">
+                            <textarea id="comment-test-<?php echo htmlspecialchars($post['id']);?>" placeholder="Write write write.."></textarea>
+                        </div>
                     </div>
                 </div>
             <?php } ?>
