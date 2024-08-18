@@ -92,6 +92,11 @@ $conn->close();
     console.log(postId);  
     const commentsContainer = document.getElementById('comments-' + postId);
     
+    if (commentsContainer.style.display === 'block') {
+      
+        commentsContainer.style.display = 'none';
+    } else {
+    
     fetch(`get_comments.php?post_id=${postId}`)
         .then(response => response.json())
         .then(data => {
@@ -117,7 +122,9 @@ $conn->close();
             commentsContainer.style.display = 'block';
         })
         .catch(error => console.error('Error fetching comments:', error));
-}
+        }
+
+    }
 </script>
 </body>
 
