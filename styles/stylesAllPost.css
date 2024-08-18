@@ -177,5 +177,12 @@ body {
 }
 
 .comment-form button:hover {
-    background-color: #333; /* Color de fondo al pasar el ratón sobre el botón */
+    background-color: #333; 
+}
+
+.back-profile {
+    width: 57px;
+    height: auto;
+    cursor: pointer;
+    padding-top: 16px;
 }
