@@ -87,6 +87,7 @@ $conn->close();
                         <!--agregar lso comments -->
                         <div class="comment-form">
                             <textarea id="comment-test-<?php echo htmlspecialchars($post['id']);?>" placeholder="Write write write.."></textarea>
+                            <button onclick="postComment(<?php echo htmlspecialchars($post['id']); ?>)">Post Comment</button>
                         </div>
                     </div>
                 </div>
@@ -131,6 +132,39 @@ $conn->close();
         }
 
     }
+
+    function postComment(postId) {
+    const commentText = document.getElementById('comment-text-' + postId).value;
+
+    if (commentText.trim() === '') {
+        alert('Comment cannot be empty.');
+        return;
+    }
+
+    fetch('post_comment.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            'post_id': postId,
+            'comment_text': commentText
+        })
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.status === 'success') {
+            
+            document.getElementById('comment-text-' + postId).value = '';
+        
+            toggleComments(postId);
+        } else {
+            alert('Error posting comment: ' + result.message);
+        }
+    })
+    .catch(error => console.error('Error posting comment:', error));
+}
+
 </script>
 </body>
 
