@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profile_picture'])) {
 
         $stmt->close();
     } else {
-        echo "Sorry, there was an error uploading your file. Check if the directory exists and has write permissions.";
+        echo "Sorry, there was an error uploading your file.";
     }
 }
 

@@ -36,7 +36,7 @@ if (!$profile_picture) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
     $comment = trim($_POST['comment']);
-    $comment_user = $_SESSION['username']; // Asumiendo que el nombre de usuario está en la sesión
+    $comment_user = $_SESSION['username']; 
 
     if (!empty($comment)) {
         $stmt = $conn->prepare("INSERT INTO comments (post_id, username, comment_text, created_at) VALUES (?, ?, ?, NOW())");
