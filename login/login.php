@@ -23,14 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../user/dashboard.php");
             exit();
         } else {
-            $_SESSION['error'] = "Contraseña incorrecta.";
+            $_SESSION['error'] = "Password incorrect";
         }
     } else {
-        $_SESSION['error'] = "Usuario no encontrado.";
+        $_SESSION['error'] = "User not found";
     }
 
     $stmt->close();
 }
 $conn->close();
-header("Location: index.php");
+header("Location: ../index.php");
 ?>
