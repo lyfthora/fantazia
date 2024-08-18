@@ -105,19 +105,19 @@ padding-top: 23%;
 display: flex;
 align-items: center;
 justify-content: space-around;
-gap: 450px;
+/* gap: 450px; */
 }
 
 .footer-img {
-    width: 77px;
+    width: 57px;
     height: auto;
     cursor: pointer;
-    padding-top: 0px;
+    padding-top: 16px;
 }
 
-.footer-img1 {
+/* .footer-img1 {
     width: 41px;
     height: auto;
     cursor: pointer;
     padding-top: 0px;
-}
+} */
