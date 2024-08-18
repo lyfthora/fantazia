@@ -44,13 +44,13 @@ $conn->close();
             <p>No posts available.</p>
         <?php } else { ?>
             <?php foreach ($posts as $post) { 
-                // Ruta de la foto de perfil
+                
                 $profile_picture = $post['profile_picture'] ? '../register/uploads/' . basename($post['profile_picture']) : '../img/default-profile.png';
                 if (!file_exists($profile_picture)) {
                     $profile_picture = '../img/shifu.png';
                 }
 
-                // Ruta de la imagen del post
+             
                 $post_image_path = 'post_images/' . basename($post['post_image']);
             ?>
                 <div class="post">
@@ -80,11 +80,51 @@ $conn->close();
                                 <span><?php echo htmlspecialchars($post['comment_count']); ?></span>
                             </div>
                         </div>
+                        <div class="post-comments-container" id="comments-<?php echo htmlspecialchars($post['id']); ?>" style="display: none;"></div>
+
                     </div>
                 </div>
             <?php } ?>
         <?php } ?>
     </div>
+    <script>
+
+function toggleComments(postId) {
+            const commentsContainer = document.getElementById('comments-' + postId);
+
+            
+            if (commentsContainer.style.display === 'block') {
+                commentsContainer.style.display = 'none';
+                return;
+            }
+
+            
+            fetch(`get_comments.php?post_id=${postId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        let commentsHTML = '';
+                        data.forEach(comment => {
+                            const profilePic = comment.profile_picture ? '../register/uploads/' + comment.profile_picture : '../img/default-profile.png';
+                            commentsHTML += `
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <img src="${profilePic}" alt="Profile Picture" class="comment-profile-picture" />
+                                        <p class="comment-username">${comment.username}</p>
+                                    </div>
+                                    <p class="comment-content">${comment.comment_content}</p>
+                                    <p class="comment-date">${new Date(comment.created_at).toLocaleString()}</p>
+                                </div>`;
+                        });
+                        commentsContainer.innerHTML = commentsHTML;
+                    } else {
+                        commentsContainer.innerHTML = '<p>No comments yet.</p>';
+                    }
+                    commentsContainer.style.display = 'block';  // Mostrar el contenedor de comentarios
+                })
+                .catch(error => console.error('Error fetching comments:', error));
+        }
+    </script>
 </body>
 
 </html>
