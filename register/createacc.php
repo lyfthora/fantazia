@@ -44,7 +44,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    // Muestra la imagen en la vista previa
+                    
                     const preview = document.getElementById('preview');
                     preview.src = e.target.result;
                     preview.style.display = 'block';

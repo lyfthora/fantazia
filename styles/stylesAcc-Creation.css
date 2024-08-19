@@ -84,3 +84,72 @@ b {
     left: 920px;
     transform: translateX(-50%);
 }
+
+@media only screen and (max-width: 600px) {
+
+	body {
+	  margin: 20px;
+	  padding: 0;
+	  overflow-y: hidden;
+	  letter-spacing: 2px;
+	  height: 100vh;
+	}
+  
+	h2 {
+	  font-size: 18px;
+	  letter-spacing: 1px;
+	  margin-top: 10px;
+	}
+  
+	h1 {
+	  font-size: 16px;
+	  top: -20px;
+	  left: -50px;
+	  width: 100%;
+	  letter-spacing: 1px;
+	}
+  
+	.pic {
+	  top: -90px;
+	  width: 200px; 
+	  height: auto;
+	  left: -50px;
+	}
+  
+	b {
+	  top: -110px;
+	  left: 0px;
+	  font-size: 14px;
+	  letter-spacing: 4px;
+	}
+  
+	#preview {
+	  width: 150px;
+	  height: 150px;
+	  top: 0;
+	  margin-top: 10px;
+	  border-width: 3px; /* Ajustamos el tamaño del borde */
+	}
+  
+	.upload {
+	  width: 80%;
+	  font-size: 14px;
+	  padding: 8px;
+	  letter-spacing: 1px;
+	  border-radius: 15px;
+	  margin-left: 15%;
+	}
+  
+	.abajopagina {
+	  bottom: -150px;
+	  left: 40%; /* Centramos el texto */
+	  transform: translateX(-50%);
+	  font-size: 12px;
+	  letter-spacing: 1px;
+	  width: 300px;
+	}
+	::-webkit-scrollbar {
+		width: 0px;  
+		background: transparent;  
+	}
+  }
