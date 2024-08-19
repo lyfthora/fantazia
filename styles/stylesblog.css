@@ -129,6 +129,51 @@ code {
   left: 650px;
   top: 10px;
 }
+.archbtw{
+  letter-spacing: 2px;
+  text-align: justify;
+  font-size: 13px;
+}
+.archbtw b{
+  letter-spacing: 2px;
+}
+
+.neofetch {
+ 
+  white-space: pre;
+  border: 1px solid white;
+ 
+  position: relative;
+  max-width: 100%;
+  margin: 15px auto;
+
+  background-color: #000000;
+  color: white;
+  border-radius: 5px;
+
+ 
+  max-width: 90%;
+
+}
+
+.neofetch-text {
+  font-family: "IBM Plex Mono", monospace;
+    white-space: pre;
+   
+    font-size: 10px;
+    position: relative;
+   
+    margin: 15px auto;
+    padding: 1px;
+
+    color: white;
+    
+text-align: justify;
+    height: 346px;
+    max-width: 90%;
+    
+    letter-spacing: 2px;
+}
 
 h5 {
   font-weight: normal;
@@ -154,6 +199,9 @@ b {
 
 .blink {
   animation: blink 2s linear infinite;
+}
+div span{
+  letter-spacing: 0px
 }
 
 @keyframes blink {
