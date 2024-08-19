@@ -121,3 +121,16 @@ justify-content: space-around;
     cursor: pointer;
     padding-top: 0px;
 } */
+@media only screen and (max-width: 600px) {
+    .posts-container {
+        justify-content: space-between; /* Distribuye los posts de manera uniforme */
+    }
+
+    .post {
+        width: 45%; 
+        
+        margin-bottom: 5px; 
+        margin-left: 5px;
+
+    }
+}
