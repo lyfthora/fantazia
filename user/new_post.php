@@ -67,6 +67,14 @@ $username = $_SESSION['username'];
                 console.log("No file selected");
             }
         });
+        window.addEventListener('resize', function() {
+            if (window.innerHeight < 500) {
+                document.querySelector('footer').style.display = 'none';
+            } else {
+                document.querySelector('footer').style.display = 'block';
+            }
+        });
+
     </script>
 </body>
 

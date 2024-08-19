@@ -35,7 +35,7 @@ body, html {
 
 .create-post-btn {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     background-color: #1a1a1a;
     color: #f0e68c;
     border: 1px solid #f0e68c;
@@ -158,4 +158,18 @@ img.distance{
     top:65%;
     left: 49%;
     z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+
+    img.distance{
+        display: none;
+    }
+    .container {
+       padding-bottom: 5px;
+    }
+    footer {
+        display: block;
+    }
+
 }
