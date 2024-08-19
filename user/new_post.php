@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Verifica si el usuario está logueado
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: index.php");
     exit();
 }
 
-// Conectar a la base de datos
 include '../db.php';
 
 $username = $_SESSION['username'];
@@ -26,7 +24,7 @@ $username = $_SESSION['username'];
 <body>
     <div class="container">
         <a href="dashboard.php" class="back-btn">back to profile</a>
-        <!-- Botón sin funcionalidad -->
+      
         <button class="create-post-btn">★ create a post ★</button>
         <form action="upload_post.php" method="post" enctype="multipart/form-data">
             <div class="upload-container" id="uploadContainer">

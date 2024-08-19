@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit();
 }
 
-// Verifica que el post_id y el comentario estén disponibles
+// Verifica que el post_id y el comentario esten disponibles
 if (isset($_POST['post_id']) && isset($_POST['comment_text'])) {
     $post_id = $_POST['post_id'];
     $comment_text = $_POST['comment_text'];
