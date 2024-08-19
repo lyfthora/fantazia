@@ -80,6 +80,9 @@ body {
     justify-content: flex-start;
     width: 90%;
     margin: 20px auto;
+    word-wrap: break-word; 
+        overflow-wrap: break-word; 
+        word-break: break-word
 }
 
 .post {
@@ -123,7 +126,7 @@ justify-content: space-around;
 } */
 @media only screen and (max-width: 600px) {
     .posts-container {
-        justify-content: space-between; /* Distribuye los posts de manera uniforme */
+        justify-content: space-between; 
     }
 
     .post {
@@ -132,5 +135,8 @@ justify-content: space-around;
         margin-bottom: 5px; 
         margin-left: 5px;
 
+    }
+    .footer-img {
+        padding-top: 250px;
     }
 }
