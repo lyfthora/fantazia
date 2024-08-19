@@ -223,3 +223,122 @@ div span{
     text-shadow: #c1b492 1px 1px 6px;
   }
 }
+@media only screen and (max-width: 600px) {
+  #enterWired {
+    display: block;
+    background-image: url(../img/gif/lainCOMP_FIN2.gif);
+    width: 120px;
+    height: 460px;
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 70px;
+    position: relative;
+    top: 10px;
+  }
+  
+  
+  body {
+      background-color: black;
+      color: #f0e68c;
+      letter-spacing: 1px;
+      font-size: 14px;
+      padding: 10px;
+      text-align: center;
+  }
+
+  img {
+      width: 100%;
+      height: auto;
+      opacity: 1;
+      animation: none;
+  }
+
+  #intro {
+      font-size: 24px;
+      letter-spacing: 6px;
+      margin: 20px 0;
+  }
+
+ 
+  .article {
+      width: 100%; 
+      max-width: 95%; 
+      
+      background-color: #00000000;
+      background-image: url("../img/gif/bg-black.gif");
+      height: auto;
+      margin-left: 0; /* Centramos el artículo */
+      margin-right: 0;
+      margin-top: 40px;
+      box-shadow: black 0px 5px 10px;
+      text-align: center;
+      letter-spacing: 3px; 
+      font-size: 12px; 
+      padding: 20px;
+  }
+
+  .jp {
+      font-size: 12px;
+      margin-bottom: 50px;
+  }
+
+  .descp {
+      width: 100%;
+      font-size: 12px;
+      margin: 10px 0;
+      letter-spacing: 2px;
+      text-align: left;
+      text-indent: 0;
+  }
+
+  .descp:first-line {
+      text-indent: 0;
+  }
+
+  b {
+      letter-spacing: 4px;
+  }
+
+  hr {
+      width: 720px;
+  }
+
+  a {
+      font-size: 12px;
+      margin-bottom: 50px;
+  }
+
+  .text {
+      width: 100%;
+      margin-bottom: 8px;
+      height: 24px;
+  }
+
+  .button {
+      width: 80%;
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 50px;
+      letter-spacing: 4px;
+      border-radius: 10px;
+  }
+
+  .opacity {
+      height: auto;
+  }
+
+  .opacityContent, .opacityContent2 {
+      animation: none;
+      opacity: 1;
+  }
+  .lainfaker {
+    width: 50%px;
+    height: 50%px;
+  }
+  .final{
+  position: relative;
+  left: 0px;
+  top: 10px;
+}
+}
