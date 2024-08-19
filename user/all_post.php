@@ -154,10 +154,8 @@ $conn->close();
                 .then(response => response.json())
                 .then(result => {
                     if (result.status === 'success') {
-                        // Clear the textarea
                         document.getElementById('comment-text-' + postId).value = '';
 
-                        // Reload comments without toggling the visibility
                         fetch(`get_comments.php?post_id=${postId}`)
                             .then(response => response.json())
                             .then(data => {
