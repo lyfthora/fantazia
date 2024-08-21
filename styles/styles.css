@@ -31,10 +31,10 @@ img {
 	animation-delay:0.6s; 
 	
 	user-select: none;
-	-moz-user-select: none;
+	
 	-webkit-user-drag: none;
 	-webkit-user-select: none;
-	-ms-user-select: none;
+	
 	
 	}
 	
@@ -51,8 +51,7 @@ img {
 	font-size:14px;
 	margin-bottom:100px;
 	letter-spacing:0px;
-	font-smooth: auto;
-	-webkit-font-smoothing : auto;
+	
 	}
 	
 .descp {

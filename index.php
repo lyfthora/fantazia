@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="styles/styles.css" />
 </head>
 
-<body background="/img/gif/bg205.gif">
+<body background="/img/gif/bg.gif">
 
 
   <div class="opacity">
