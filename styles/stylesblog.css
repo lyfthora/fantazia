@@ -1,5 +1,10 @@
 @charset "UTF-8";
-/* CSS Document */
+
+
+::-webkit-scrollbar {
+  width: 0px; 
+  background: transparent;  
+}
 
 * {
   margin: 0px;
